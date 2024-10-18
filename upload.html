@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Content</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        input[type="button"] {
+    
+    margin-bottom: 10px; /* Add space below the buttons */
+    padding: 10px 20px; /* Adjust padding for consistent button size */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid   greenyellow; /* Border styling */
+    background-color: #4CAF50; /* Background color */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+input[type="button"], button {
+    margin-top: 10px; /* Add space above the buttons */
+    margin-bottom: 10px; /* Add space below the buttons */
+    padding: 10px 20px; /* Adjust padding for consistent button size */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid rgb(148, 230, 16); /* Border styling */
+    background-color: #f4f4f4; /* Background color */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+input[type="button"]:hover{
+    background-color: #afc8e6;
+
+}
+
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <h1>Upload Content</h1>
+        <!-- Update form attributes for server-side processing -->
+        <form id="uploadForm" action="upload.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="type">Type:</label>
+                <select id="type" name="type" required>
+                    <option value="video">Video</option>
+                    <option value="image">Image</option>
+                    <option value="pdf">PDF</option>
+                    <option value="audio">Audio</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="creator">Creator/Author:</label>
+                <input type="text" id="creator" name="creator" required>
+            </div>
+            <div class="form-group">
+                <label for="file">Choose File:</label>
+                <!-- Make sure the file input has a name attribute -->
+                <input type="file" id="file" name="file" accept="video/*,image/*,.pdf,audio/*" required>
+            </div>
+            <button type="submit">Upload</button>
+            <input type="reset" value="Clear">
+        </form>
+        <div id="uploadedFiles"></div>
+    </div>
+
+    <script>
+       
+        function redirectToClasses() {
+            // Debugging: Check if the function is called
+            console.log("Redirect function called");
+
+            // Check if the user is logged in (for example, using a session variable or local storage)
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+            // Debugging: Log the login status
+            console.log("Is logged in:", isLoggedIn);
+
+            if (isLoggedIn === 'true') {
+                // If the user is logged in, redirect to classes.html
+                window.location.href = 'classes.html';
+            } else {
+                // If the user is not logged in, redirect to the login page
+                alert("You must be logged in to view classes.");
+                window.location.href = 'signup.html';
+            }
+        }
+    
+    </script>
+</body>
+</html>

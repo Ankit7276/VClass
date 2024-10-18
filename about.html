@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Dr. Virendra Pratap Sekhawat Class</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        .back-button-container {
+    text-align: center;
+    margin-top: 40px; /* Add some space above the button */
+    margin-bottom: 20px; /* Space between the button and the footer */
+}
+
+.back-button {
+    background-color: #4CAF50; /* Green background */
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo-no-background.png" alt="Dr. Virendra Pratap Sekhawat">
+        </div>
+        <nav>
+            <ul>
+                <!-- <li><a href="index.html">Home</a></li> -->
+                <li><a href="about.html">About</a></li>
+                <!-- <li><a href="classes.html">Classes</a></li>
+                <li><a href="contact.html">Contact</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>About This Website</h1>
+        <p>This is the website that helps students in their studies by providing access to various educational resources.</p>
+    </main>
+
+    <div class="back-button-container">
+        <button onclick="goBackToHome()" class="back-button">Back to Home</button>
+    </div>
+
+    <script>
+        function goBackToHome() {
+            window.location.href = 'index.html';
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Dr. Virendra Pratap Sekhawat Class. All rights reserved.</p>
+    </footer>
+</body>
+</html>

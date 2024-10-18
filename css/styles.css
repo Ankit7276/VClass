@@ -1,0 +1,465 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color:whitesmoke;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo img {
+    height: 50px; /* Adjust as needed */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ddd;
+}
+
+.auth-buttons button {
+    margin-left: 10px;
+    padding: 8px 16px;
+    background-color: #fff;
+    color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-buttons button:hover {
+    background-color: #ddd;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+h2 {
+    color: #4CAF50;
+}
+
+p {
+    color: #555;
+}
+
+.demo {
+    margin-top: 20px;
+}
+
+.demo div {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.class-sections {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.section {
+    flex-basis: 30%;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+    text-align: left;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+button[type="submit"], .auth-box button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button[type="submit"]:hover, .auth-box button:hover {
+    background-color: #45a049;
+}
+
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+/* Login and Sign Up Pages */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    background-color: #f0f0f0;
+    min-height: calc(100vh - 80px); /* Adjust based on header/footer height */
+}
+
+.auth-box,
+.auth-box2 {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-box :hover,
+.auth-box2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.auth-box h1,
+.auth-box2 h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.auth-box form div,
+.auth-box2 form div {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.auth-box label,
+.auth-box2 label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+.auth-box input,
+.auth-box2 input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.auth-box input:focus,
+.auth-box2 input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.auth-box button,
+.auth-box2 button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.auth-box button:hover,
+.auth-box2 button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #45a049;
+}
+
+.auth-box p,
+.auth-box2 p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.auth-box a,
+.auth-box2 a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.auth-box a:hover,
+.auth-box2 a:hover {
+    color: #388E3C;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .class-sections {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section {
+        flex-basis: 80%;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .auth-buttons {
+        margin-top: 10px;
+    }
+}
+
+
+/* Existing styles... */
+
+/* Upload Page Styles */
+.upload-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 50px auto;
+}
+
+.upload-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.upload-container .form-group {
+    margin-bottom: 15px;
+}
+
+.upload-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.upload-container input[type="text"],
+.upload-container select,
+.upload-container input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.upload-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.upload-container button:hover {
+    background-color: #0056b3;
+}
+
+#uploadedFiles {
+    margin-top: 20px;
+}
+
+.uploaded-file {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.uploaded-file h3 {
+    margin: 0;
+}
+
+.uploaded-file p {
+    margin: 5px 0;
+}
+
+.uploaded-file img,
+.uploaded-file video,
+.uploaded-file audio {
+    display: block;
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.uploaded-file a {
+    display: block;
+    margin-top: 10px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.uploaded-file a:hover {
+    text-decoration: underline;
+}
+
+#classesContainer {
+        margin: 20px auto;
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+        flex-wrap: nowrap;
+        align-content: flex-start;
+        justify-content: space-around;
+        align-items: flex-start;
+}
+
+#classesContainer section {
+    margin-bottom: 30px;
+}
+
+#classesContainer .files .file-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+#classesContainer .files .file-item h3 {
+    margin-top: 0;
+}
+
+#classesContainer .files .file-item video,
+#classesContainer .files .file-item audio {
+    display: block;
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* #classesContainer {
+    margin: 20px auto;
+    width: 90%; /* Adjust the width according to your preference */
+  /*  display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#classesContainer section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox for horizontal alignment */
+/*.files {
+    display: flex;
+    flex-wrap: wrap; /* Wrap items if they overflow */
+   /* gap: 15px; /* Space between the items */
+   /* justify-content: flex-start; /* Align items to the start of the container */
+/*}
+
+.files video,
+.files embed,
+.files audio {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* Specific sizing for different file types */
+/*#videoSection .files video,
+#pdfSection .files embed,
+#audioSection .files audio {
+    width: 30%; /* Adjust width according to preference */
+/*} */

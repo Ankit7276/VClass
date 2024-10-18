@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Dr. Virendra Pratap Sekhawat Class</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        /* Hide sections by default */
+        .auth-box-off,
+        .auth-box2,
+        .signup-off,
+        .page3_class1,
+        .page4_class1 {
+            display: none;
+        }
+
+/* Optional: General button styling for consistency */
+ input[type="reset"], button {
+    margin-top: 10px; /* Add space above the buttons */
+    margin-bottom: 10px; /* Add space below the buttons */
+    padding: 10px 20px; /* Adjust padding for consistent button size */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid rgb(148, 230, 16); /* Border styling */
+    background-color: #f4f4f4; /* Background color */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+input[type="button"] {
+    
+    margin-bottom: 10px; /* Add space below the buttons */
+    padding: 10px 20px; /* Adjust padding for consistent button size */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid   greenyellow; /* Border styling */
+    background-color: #4CAF50; /* Background color */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+
+input[value="Create New"] {
+
+    margin-bottom: 10px; /* Add space below the buttons */
+    padding: 10px 20px; /* Adjust padding for consistent button size */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid   greenyellow; /* Border styling */
+    background-color: rgb(161, 161, 121); /* Background color */
+    cursor: pointer; /* Pointer cursor on hover */
+    
+}
+
+input[type="button"]:hover, input[type="reset"]:hover, button:hover {
+    background-color: #afc8e6; /* Slightly darker background on hover */
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo-no-background.png" alt="Dr. Virendra Pratap Sekhawat">
+        </div>
+        <!-- <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav> -->
+    </header>
+
+    <main class="auth-container">
+        <!-- Login Section -->
+        <div class="auth-box" id="login">
+            <h1>Login</h1>
+            <form id="login-form">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div>
+                    <input type="button" value="Login" onclick="LoginUser()" style="margin-right: 10px; " >
+                    <input   type="reset" value="Clear">
+                </div>
+                <p>If you don't have an account, <input type="button" onclick="showSignup()" value="Create New"  ></p>
+            </form>
+        </div>
+
+        <!-- Sign Up Section -->
+        <div class="auth-box2" id="signup">
+            <h1>Sign Up</h1>
+            <form id="signup-form">
+                <div>
+                    <label for="username-signup">Username:</label>
+                    <input type="text" id="username-signup" name="username" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password-signup">Password:</label>
+                    <input type="password" id="password-signup" name="password" required>
+                </div>
+                <div>
+                    <label for="number">Contact Details:</label>
+                    <input type="number" id="number" name="number" required>
+                </div>
+                <div>
+                    <button type="button" onclick="submitForm()" style="margin-right: 10px;">Sign Up</button>
+                    <input type="reset" value="Clear">
+                </div>
+            </form>
+        </div>
+
+        <!-- Success Message -->
+        <div class="page3_class1" id="page3_id1" style="background:none;border:2px solid gray;border-radius: 20px;width: 250px;padding: 20px;">
+            <center>
+                <h2>Your account has been successfully created. Login to your account</h2>
+                <button onclick="function3()" style="font-weight:bold;">Login</button>
+            </center>
+        </div>
+
+        <!-- Welcome Message -->
+        <div class="page4_class1" id="page4_id1" style="background:none;border:2px solid rgb(214, 9, 9);border-radius: 20px;width: 250px;padding: 20px;">
+            <center>
+                <h2>Hi <b id="displayusername" style="color:red;"></b>!</h2>
+                <div class="user"></div>
+                <h2>You are successfully logged in.</h2>
+                <h2>**************</h2>
+            </center>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Dr. Virendra Pratap Sekhawat Class. All rights reserved.</p>
+    </footer>
+
+    <script>
+    const webAppUrl = "https://script.google.com/macros/s/AKfycbz23O-HDVefz8ZQRWIsfrGbt7MHXkoj7FQNnnUOGUebzAwjkOpAQ0I4LP2RVXIFbCpA/exec"; // Replace with your actual Google Apps Script Web App URL
+
+    function submitForm() {
+        const username = document.getElementById("username-signup").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password-signup").value;
+        const number = document.getElementById("number").value;
+
+        if (!username || !email || !password || !number) {
+            alert("Please fill out all fields.");
+            return;
+        }
+
+        // Check for duplicate username and email
+        fetch(`${webAppUrl}?action=checkDuplicate&username=${username}&email=${email}`)
+            .then(response => response.text())
+            .then(result => {
+                if (result === 'DUPLICATE') {
+                    alert("Username or email already exists. Please choose another.");
+                } else {
+                    const formData = new FormData();
+                    formData.append("username", username);
+                    formData.append("email", email);
+                    formData.append("password", password);
+                    formData.append("number", number);
+
+                    fetch(webAppUrl, {
+                        method: "POST",
+                        body: formData
+                    })
+                    .then(response => response.text())
+                    .then(result => {
+                        alert("Form submitted successfully: " + result);
+                        document.getElementById("signup").style.display = "none";
+                        document.getElementById("page3_id1").style.display = "block";
+                    })
+                    .catch(error => {
+                        console.error("Error submitting form: ", error);
+                        alert("There was an error submitting your form. Please try again.");
+                    });
+                }
+            })
+            .catch(error => {
+                console.error("Error checking duplicates: ", error);
+                alert("There was an error checking for duplicate entries. Please try again.");
+            });
+    }
+
+    function LoginUser() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const params = new URLSearchParams();
+    params.append("username", username);
+    params.append("password", password);
+
+    fetch(`${webAppUrl}?action=checkLogin&${params.toString()}`)
+        .then(response => response.text())
+        .then(result => {
+            if (result === 'TRUE') {
+                document.getElementById("displayusername").innerHTML = username;
+                document.getElementById("login").style.display = "none";
+                document.getElementById("page4_id1").style.display = "block";
+                
+                // Hold the page for 2 seconds before redirecting
+                setTimeout(() => {
+                    window.location.href = "upload.html"; // Redirect to classes.html
+                }, 2000); // 2000 milliseconds = 2 seconds
+            } else {
+                alert("Invalid username or password");
+            }
+        })
+        .catch(error => {
+            console.error("Error logging in: ", error);
+            alert("There was an error during login. Please try again.");
+        });
+}
+
+    function function3() {
+        document.getElementById("page3_id1").style.display = "none";
+        document.getElementById("login").style.display = "block";
+    }
+
+    function showSignup() {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("signup").style.display = "block";
+    }
+</script>
+
+
+</body>
+</html>
